@@ -2,14 +2,15 @@ package hash
 
 import (
 	"bytes"
-	"crypto/sha512"
 	"encoding/gob"
 	"encoding/hex"
 	"fmt"
+
+	"golang.org/x/crypto/sha3"
 )
 
 func EncodeToSha512(data []byte) string {
-	h := sha512.Sum512(data)
+	h := sha3.Sum512(data)
 	return hex.EncodeToString(h[:])
 }
 
